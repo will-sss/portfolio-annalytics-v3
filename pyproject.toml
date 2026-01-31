@@ -1,0 +1,49 @@
+## Project configuration for Portfolio Analytics Platform V3
+
+[project]
+name = "portfolio_analytics_v3"
+version = "0.1.0"
+description = "Institutional‑grade portfolio analytics platform using free data sources"
+authors = [
+    { name = "Portfolio Analytics Team", email = "dev@example.com" },
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "flask>=2.3",
+    "flask-cors>=3.0",
+    "flask-caching>=2.0",
+    "numpy>=1.23",
+    "pandas>=2.0",
+    "plotly>=5.16",
+    "yfinance>=0.2",
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.0.271",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP"]
